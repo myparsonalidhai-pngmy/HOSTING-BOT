@@ -53,7 +53,9 @@ def keep_alive():
 # --- End Flask Keep Alive ---
 
 # --- Configuration ---
-TOKEN = "8690572251:AAFYOnY_a4VDePTMZ1ZY3K768VCTwRasHkU"
+TOKEN = os.environ.get("BOT_TOKEN", "").strip()
+if not TOKEN:
+    raise RuntimeError("Set BOT_TOKEN in the hosting platform environment variables.")
 OWNER_ID = 8769604379
 ADMIN_ID = 8769604379
 YOUR_USERNAME = '@GOJOTEAMV1'
